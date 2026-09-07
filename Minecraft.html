@@ -10,7 +10,7 @@
             body {
                 display: flex;
                 flex-direction: column;
-                background-image: url("https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Onboarding_Card-A_For-Beginners_600x600.jpg");
+                background-image: url("https://assets-prd.ignimgs.com/2025/03/21/mc-2-1742564068582.jpg");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -55,9 +55,44 @@
                 max-width: 100%;
                 height: auto;
             }
+            .image-left {
+                display:block;
+                float: left;
+                margin: 0 10px 0 10px;
+                width: 500px;
+                max-width: 100%;
+                height: auto;
+            }
+            .footer {
+                width: 100%;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+                margin-top: auto;
+            }
+            .forestgreen {
+                color: forestgreen;
+            }
+            .end {
+                color: rgb(66, 66, 40);
+            }
+            .nether {
+                color: rgb(238, 75, 75);
+            }
+            .brown {
+                color: brown;
+            }
         </style>
     </Head>
     <body>
+        <header>
+            <h1 class="text-center">Welcome to the Minecraft Page</h1>
+            <select class="center-text" onchange="location = this.value;">
+                <option value="index.html">Home</option>
+                <option value="Roblox.html">Roblox</option>
+                <option value="Minecraft.html" selected>Minecraft</option>
+        </header>
         <H1 class="text-center"> MINECRAFT </H1>
         <h3 class="center-text"> <b>Minecraft</b>, a really famous, liked and one of the most played games was released in 2009, April.
              <br> This is a sandbox game which uses blocks and non-real life physics. It is set in a blocky world where our main goal is to beat the Ender dragon. 
@@ -69,6 +104,30 @@
         <b>Cats</b><br>
         <b>And Many More...</b>
         </h4>
-
+        <img class="image-right" src="https://gaming-cdn.com/images/news/articles/18653/cover/1000x563/minecraft-will-get-its-own-theme-park-in-the-uk-in-2027-cover69bfed58e3d2f.jpg" alt="Minecraft Image">
+        <h4 class="left-text"> The game has a lot of different modes and some of them include <br>
+        <b>Survival Mode</b> (The main mode of the game)<br>
+        <b>Creative Mode</b><br>
+        <b>Adventure Mode</b><br>
+        <b>Hardcore Mode</b><br>
+        <b>And Many More...</b>
+        </h4>
+        <h4 class="left-text"> The game has a lot of different biomes and some of them include <br>
+        <b>Plains</b><br>
+        <b>Forests</b><br>
+        <b>Oceans</b><br>
+        <b>Mountains</b><br>
+        <b>And Many More...</b>
+        </h4>
+        <h4 class="left-text"> The game has a lot of different dimensions and some of them include <br>
+        <b class="brown">The Overworld</b><br>
+        <b class="nether">The Nether</b><br>
+        <b class="end">The End</b><br>
+        <img class="image-left" src="https://staticg.sportskeeda.com/editor/2022/08/9485c-16600277128905-1920.jpg" alt="Minecraft Dimensions Image">
+        </h4>
+        <a href="index.html" class="left-text">Back to Games</a>
+        <div class="footer">
+            <p>© 2024 Minecraft. All rights reserved.</p>
+        </div>
     </body>
 </html>
