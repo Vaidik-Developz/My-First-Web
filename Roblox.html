@@ -2,23 +2,39 @@
 <html>
     <head>
         <title>About Roblox</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
             html, body {
                 margin: 0;
-                min-height: 100%;
+                min-height: 100vh;
             }
             body {
-                position: relative;
+                display: flex;
+                flex-direction: column;
                 background: transparent;
+                overflow-x: hidden;
+                isolation: isolate;
             }
             .bg-layer {
                 position: fixed;
                 inset: 0;
-                background-image: url("file:///C:/Users/Vaidik/Downloads/images%20(7).jpg");
+                background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202604/0801/f2bdf0b6807d0e43c432e4de00f444df6c97732065904006.png");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                z-index: -1;
+                filter: brightness(0.45);
+                z-index: -2;
+            }
+            .page-content {
+                width: min(900px, 100%);
+                margin: 0 auto;
+                padding: 20px;
             }
             .white {
                 color: white;
@@ -40,13 +56,108 @@
                 max-width: 100%;
                 height: auto;
             }
+            .roblox-image {
+                width: min(700px, 100%);
+                border-radius: 10px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+            }
+            .info-block {
+                margin: 35px 0;
+                color: white;
+                line-height: 1.6;
+            }
+            .info-block h2 {
+                color: #7ddcff;
+            }
+            .reveal-item {
+                opacity: 0;
+                transform: translateY(25px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            .reveal-item.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .back-button {
+                display: block;
+                margin: 30px auto;
+                padding: 12px 20px;
+                background-color: white;
+                border: 2px solid #222;
+                border-radius: 6px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+            .back-button a {
+                color: #222;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .back-button:hover {
+                background-color: #d9f3ff;
+                transform: translateY(-3px);
+            }
+            .footer {
+                width: 100%;
+                margin-top: auto;
+                padding: 10px;
+                color: white;
+                text-align: center;
+                background-color: #333;
+            }
+            @media (max-width: 600px) {
+                .page-content {
+                    padding: 15px 12px;
+                }
+                h1 {
+                    font-size: clamp(2rem, 10vw, 3rem);
+                }
+                p {
+                    overflow-wrap: anywhere;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="bg-layer"></div>
-        <h1 class="center white">Roblox</h1>
-        <p class="center white">Roblox is a global platform where people can play, create, and share games with others.</p>
-        <img class="center-image" src="file:///C:/Users/Vaidik/Downloads/images%20(8).jpg" alt="Roblox Image">
-        <a href="index.html" class="left white">Back to Games</a>
+        <main class="page-content">
+            <h1 class="center white reveal-item">Roblox</h1>
+            <h3 class="center white reveal-item"><b>Roblox</b> is a global platform where people can play, create, and share games with others.</h3>
+            <section class="info-block reveal-item">
+                <h2>What Roblox offers</h2>
+                <p>Roblox is built around user-created experiences. Players can explore different worlds, play with friends, and make their own games.</p>
+                <p>Some parts of Roblox include:</p>
+                <ul>
+                    <li>Player-created games and experiences</li>
+                    <li>Avatars and custom items</li>
+                    <li>Social features for playing with friends</li>
+                    <li>Tools for creating interactive worlds</li>
+                </ul>
+            </section>
+            <img class="center-image roblox-image reveal-item" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Roblox_Logo_2025.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20250221235424" alt="Roblox logo">
+            <section class="info-block reveal-item">
+                <h2>How people play</h2>
+                <p>Roblox has many kinds of experiences, including adventure, role-playing, racing, building, and obstacle-course games.</p>
+            </section>
+            <button class="back-button reveal-item"><a href="index.html">Back to Games</a></button>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Roblox. All rights reserved.</p>
+        </footer>
+        <script>
+            const revealItems = document.querySelectorAll('.reveal-item');
+
+            const itemObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            revealItems.forEach((item) => itemObserver.observe(item));
+        </script>
     </body>
 </html>
